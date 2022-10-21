@@ -1,0 +1,59 @@
+
+.main_footer{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px auto;
+
+    &_ctn{
+        width: 30%;
+        margin: 0px auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 1024px) {
+            width: 40%;
+        }
+
+        @media screen and (max-width: 834px) {
+            width: 50%;
+        }
+
+        @media screen and (max-width: 428px) {
+            width: 90%;
+        }
+
+        button{
+            border-radius: 4px;
+            width: 48%;
+            box-sizing: border-box;
+            padding: 10px 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            font-weight: bold;
+
+            border: 1px solid #3366ff;
+            background-color: #3366ff;
+            color: #ffffff;
+
+            @media screen and (max-width: 1024px) {
+                padding: 8px 0;
+            }
+
+            @media screen and (max-width: 834px) {
+                padding: 6px 0;
+                font-size: 0.9em;
+            }
+
+            @media screen and (max-width: 428px) {
+                font-size: 0.8em;
+            }
+
+            &:hover{
+                background-color: #1a53ff;
+            }
+        }
+    }
+}
