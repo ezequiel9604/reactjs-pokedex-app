@@ -14,7 +14,6 @@ function Footer(props) {
     }
 
     function selectNext(){
-    
         const id = parseInt(props.selectedId);
 
         if(id < props.pokemonsLength)

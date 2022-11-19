@@ -1,18 +1,33 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import "./Assets/css/reset.css";
 import "./Assets/scss/main.scss";
 import Header from "./Header/Header";
 import Section from "./Section/Section";
 import Footer from "./Footer/Footer";
+import UserContext from "./context";
 
 import { Pokemon } from "./DummyData/DummyData";
+import { getUsers } from "./api/index";
 
 function App() {
 
   const [selectedPokemon, setSeletedPokemon] = useState(Pokemon[0]);
 
+  useEffect(() => {
+
+    async function getData(){
+
+      const data = await getUsers()
+
+      console.log(data)
+
+    }
+
+    getData()
+
+  }, [])
 
   function getPokemonName(listOfPokemon){
 
@@ -47,24 +62,25 @@ function App() {
 
   return (
     <main>
-      
-      <Header 
-        names={getPokemonName(Pokemon)}
-        onChangePokemonByName={changePokemonByName}
-        selectedName={selectedPokemon.name} 
-        />
+        <UserContext.Provider value={ {name:'John doe', age:26 }}>
+          <Header 
+            names={getPokemonName(Pokemon)}
+            onChangePokemonByName={changePokemonByName}
+            selectedName={selectedPokemon.name} 
+            />
 
-      <Section 
-        name={selectedPokemon.name} 
-        images={selectedPokemon.images} 
-        description={selectedPokemon.description} 
-        />
+          <Section 
+            name={selectedPokemon.name} 
+            images={selectedPokemon.images} 
+            description={selectedPokemon.description} 
+            />
 
-      <Footer 
-        selectedId={selectedPokemon.id} 
-        pokemonsLength={Pokemon.length}
-        onChangePokemonById={changePokemonById} />
+          <Footer 
+            selectedId={selectedPokemon.id} 
+            pokemonsLength={Pokemon.length}
+            onChangePokemonById={changePokemonById} />
 
+        </UserContext.Provider>
     </main>
   );
 }

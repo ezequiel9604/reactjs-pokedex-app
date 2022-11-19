@@ -51,7 +51,7 @@ export const Pokemon = [
     {
         id: 9,
         name: "Psyduck",
-        images: ["Psyduck/001.png", "Psyduck/002.png", "Psyduck/003.png"],
+        images: ["Psyduck/001.png", "Psyduck/002.png"],
         description: `Psyduck is constantly beset by headaches. If the Pokémon lets its strange power erupt, apparently the pain subsides for a while.`,
     },
     {
